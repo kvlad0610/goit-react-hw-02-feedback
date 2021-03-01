@@ -10,33 +10,41 @@ class App extends Component {
     bad: 0,
   };
 
-  eddGood = () => {
-    this.setState(prevState => {
-      return {
-        good: prevState.good + 1,
-      };
-    });
-  };
+  // eddGood = () => {
+  //   this.setState(prevState => {
+  //     return {
+  //       good: prevState.good + 1,
+  //     };
+  //   });
+  // };
 
-  eddNeutral = () => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    });
-  };
+  // eddNeutral = () => {
+  //   this.setState(prevState => {
+  //     return {
+  //       neutral: prevState.neutral + 1,
+  //     };
+  //   });
+  // };
 
-  eddBad = () => {
+  // eddBad = () => {
+  //   this.setState(prevState => {
+  //     return {
+  //       bad: prevState.bad + 1,
+  //     };
+  //   });
+  // };
+
+  eddStatistic = e => {
+    const { name } = e.currentTarget;
     this.setState(prevState => {
       return {
-        bad: prevState.bad + 1,
+        [name]: prevState[name] + 1,
       };
     });
   };
 
   render() {
     const { good, neutral, bad } = this.state;
-    const { eddGood, eddNeutral, eddBad } = this;
 
     const countTotalFeedback = good + neutral + bad;
 
@@ -50,9 +58,7 @@ class App extends Component {
         good={good}
         neutral={neutral}
         bad={bad}
-        onEddGood={eddGood}
-        onEddNeutral={eddNeutral}
-        onEddBad={eddBad}
+        onEddStatistic={this.eddStatistic}
         onCountTotalFeedback={countTotalFeedback}
         onCountPositiveFeedbackPercentage={countPositiveFeedbackPercentage}
       />

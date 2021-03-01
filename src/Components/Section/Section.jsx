@@ -3,22 +3,16 @@ import Statistics from '../Statistics/Statistics';
 import Notification from '../Notification/Notification';
 
 const Section = ({
+  onEddStatistic,
   good,
   neutral,
   bad,
-  onEddGood,
-  onEddNeutral,
-  onEddBad,
   onCountTotalFeedback,
   onCountPositiveFeedbackPercentage,
 }) => (
   <div>
     <h1>Please leave feedback</h1>
-    <FeedbackOptions
-      onEddGood={onEddGood}
-      onEddNeutral={onEddNeutral}
-      onEddBad={onEddBad}
-    />
+    <FeedbackOptions onEddStatistic={onEddStatistic} />
     <h2>Statistics</h2>
     {onCountTotalFeedback === 0 ? (
       <Notification />
